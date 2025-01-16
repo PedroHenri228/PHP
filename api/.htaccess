@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Exclui diretórios e arquivos existentes
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Redireciona as requisições para index.php com o caminho capturado
+RewriteRule ^(.*)$ index.php?url=$1 [QSA]
+
+# Protege arquivos sensíveis
+RewriteCond %{REQUEST_URI} !^/\.env
+RewriteCond %{REQUEST_URI} !^/\.htaccess
