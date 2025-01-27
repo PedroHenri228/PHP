@@ -6,7 +6,7 @@ class HomeController {
     
     public function index()
     {
-        echo 'Home';
+        var_dump('index');
     }
     
 }
