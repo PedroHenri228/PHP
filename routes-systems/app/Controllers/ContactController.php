@@ -8,7 +8,7 @@ class ContactController {
 
     public function index()
     {
-        var_dump('contact');
+        Controllers::view('contact');
     }
 
     public function store()

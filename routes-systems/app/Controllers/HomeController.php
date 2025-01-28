@@ -2,11 +2,13 @@
 
 namespace App\Controllers;
 
+
 class HomeController {
     
     public function index()
     {
-        var_dump('index');
+        return Controllers::view("home");
+        
     }
     
 }
