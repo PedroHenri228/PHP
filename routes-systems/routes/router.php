@@ -18,8 +18,8 @@ function load(string $controller, string $action) {
 
     }
 
+    $controllerInstace->$action((object) $_REQUEST);
 
-    $controllerInstace->$action();
     } catch(Exception $e) {
         echo $e->getMessage();
     }
@@ -28,10 +28,10 @@ function load(string $controller, string $action) {
 
 $router = [
     'GET' => [
-        '/' => load('HomeController', 'index'),
-        '/contact' => load('ContactController', 'index'),
+        '/' => fn() => load('HomeController', 'index'),
+        '/contact' =>fn() => load('ContactController', 'index'),
     ],
     'POST' => [
-        '/contact' => load('ContactController', 'store'),
+        '/contact' =>fn() => load('ContactController', 'store'),
     ],
 ];

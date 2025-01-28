@@ -8,11 +8,13 @@ class ContactController {
 
     public function index()
     {
-        Controllers::view('contact');
+        return Controllers::view('contact');
     }
 
-    public function store()
-    {
+    public function store($params)
+    {   
+        echo "<pre>";
+        var_dump($params);
         var_dump('store');
     }
 
