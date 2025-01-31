@@ -6,8 +6,8 @@ use App\Config\Config;
 
 class ApiClient {
 
-    private $api_key = Config::getApiKey();
-    private $api_url = Config::getApiUrl();
+    private $api_key = Config::API_KEY;
+    private $api_url = Config::API_URL;
 
     public function __construct() {
 

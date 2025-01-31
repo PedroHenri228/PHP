@@ -16,13 +16,11 @@ class BookController {
 
     private $results;
 
-    private $api_key = Config::getApiKey();
+    private $api_key = Config::API_KEY;
 
     public function index() {
         $this->endpoint = 'lists.json';
 
-        echo "<pre>";
-        var_dump($this->api_key);
 
         $this->params = [
             'api-key' => $this->api_key,

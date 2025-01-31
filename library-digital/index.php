@@ -1,11 +1,6 @@
 <?php 
 
 require_once __DIR__ ."/vendor/autoload.php";
+require_once __DIR__ . '/src/Routes/main.php';
 
-
-use App\Models\ApiClient;
-use App\Controllers\BookController;
-
-$book = new BookController();
-$book->index();
 
