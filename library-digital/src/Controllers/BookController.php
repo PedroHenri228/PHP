@@ -3,11 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\ApiClient;
+use App\Models\OpenLibraryApi;
 use App\Config\Config;
 
 class BookController {
 
     private $books;
+
+    private $newISBN;
     private $endpoint;
 
     private $params;
@@ -36,6 +39,18 @@ class BookController {
         $this->render('books', [
             'results' => $this->results,
         ]);
+    }
+
+
+    public function isbn($isbn) {
+
+        $this->newISBN = new OpenLibraryApi;
+
+        $this->results = $this->newISBN->getBookByISBN($isbn);
+
+        $this->render('open', ['results' => $this->results,]);
+        
+
     }
 
     private function render($view, $data = []) {

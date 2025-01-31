@@ -16,7 +16,7 @@
                     <strong>Título:</strong> <?= htmlspecialchars($bookDetails['title'] ?? 'Sem título') ?><br>
                     <strong>Autor:</strong> <?= htmlspecialchars($bookDetails['author'] ?? 'Desconhecido') ?><br>
                     <strong>Descrição:</strong> <?= htmlspecialchars($bookDetails['description'] ?? 'Desconhecido') ?><br>
-                    <strong>ISBN: <?= htmlspecialchars($isbn['isbn13']) ?> </strong>
+                    <a href="http://localhost:8080/library-digital/books/<?= htmlspecialchars($isbn['isbn13']) ?> ">ISBN</a>
                 </li>
             <?php endforeach; ?>
         </ul>

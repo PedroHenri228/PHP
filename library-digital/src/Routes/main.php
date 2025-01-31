@@ -6,7 +6,7 @@ Route::get('/', 'BookController@index');
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact', 'ContactController@store');
 
-Route::get('/users/{id}', 'UserController@show');
+Route::get('/books/{id}', 'BookController@isbn');
 
 $method = $_SERVER['REQUEST_METHOD'];
 
