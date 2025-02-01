@@ -1,19 +1,33 @@
 <?php 
 
+// Model - OpenLibraryApi
 namespace App\Models;
 
 use App\Config\Config;
 
 class OpenLibraryApi {
-
     private $baseUrl = Config::API_URL_OPENLIBRARY;
-    
+
     public function getBookByISBN(string $isbn): array {
         $url = "{$this->baseUrl}?bibkeys=ISBN:{$isbn}&format=json&jscmd=data";
 
         $response = $this->makeRequest($url);
 
-        return $response["ISBN:{$isbn}"] ?? [];
+        if (isset($response["ISBN:{$isbn}"])) {
+            $bookData = $response["ISBN:{$isbn}"];
+
+            if (isset($bookData['description'])) {
+                if (is_array($bookData['description'])) {
+                    $bookData['description'] = $bookData['description']['value'] ?? 'Descrição não disponível';
+                }
+            } else {
+                $bookData['description'] = 'Descrição não disponível';
+            }
+
+            return $bookData;
+        }
+
+        return [];
     }
 
     private function makeRequest(string $url): array {
@@ -32,5 +46,4 @@ class OpenLibraryApi {
 
         return [];
     }
-
 }

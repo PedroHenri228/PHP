@@ -3,7 +3,6 @@
 use App\Http\Route;
 
 Route::get('/', 'BookController@index');
-Route::get('/contact', 'ContactController@index');
 Route::post('/contact', 'ContactController@store');
 
 Route::get('/books/{id}', 'BookController@isbn');

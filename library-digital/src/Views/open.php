@@ -19,6 +19,12 @@
         <strong>Data de Publicação:</strong> <?php echo $results['publish_date'] ?? 'Não disponível'; ?>
     </div>
     <div>
+        <strong>Descrição:</strong> 
+        <?php 
+        echo !empty($results['description']) ? nl2br($results['description']) : 'Descrição não disponível';
+        ?>
+    </div>
+    <div>
         <strong>Imagem da Capa:</strong> <br>
         <?php echo !empty($results['cover']) ? "<img src='{$results['cover']['medium']}' alt='Capa do Livro'>" : 'Imagem não disponível'; ?>
     </div>

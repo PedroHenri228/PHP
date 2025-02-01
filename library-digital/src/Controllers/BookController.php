@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Controllers;
 
@@ -6,10 +6,12 @@ use App\Models\ApiClient;
 use App\Models\OpenLibraryApi;
 use App\Config\Config;
 
-class BookController {
+class BookController
+{
 
     private $books;
 
+    private $description = [];
     private $newISBN;
     private $endpoint;
 
@@ -21,7 +23,8 @@ class BookController {
 
     private $api_key = Config::API_KEY;
 
-    public function index() {
+    public function index()
+    {
         $this->endpoint = 'lists.json';
 
 
@@ -29,11 +32,12 @@ class BookController {
             'api-key' => $this->api_key,
             'list' => $this->listname,
         ];
-        
+
 
         $this->books = new ApiClient();
 
         $this->results = $this->books->get($this->endpoint, $this->params);
+
 
 
         $this->render('books', [
@@ -42,19 +46,22 @@ class BookController {
     }
 
 
-    public function isbn($isbn) {
+    public function isbn($isbn)
+    {
 
         $this->newISBN = new OpenLibraryApi;
 
         $this->results = $this->newISBN->getBookByISBN($isbn);
 
         $this->render('open', ['results' => $this->results,]);
-        
+
 
     }
 
-    private function render($view, $data = []) {
-    
+
+    private function render($view, $data = [])
+    {
+
         extract($data);
 
         require_once __DIR__ . "/../Views/{$view}.php";
