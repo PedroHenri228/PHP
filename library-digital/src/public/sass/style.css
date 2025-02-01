@@ -1,0 +1,16 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #b6daf2;
+}
+
+button {
+  background: #3498db;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+}
+button:hover {
+  background: #217dbb;
+}/*# sourceMappingURL=style.css.map */
